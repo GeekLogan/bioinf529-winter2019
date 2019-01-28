@@ -133,10 +133,10 @@ def score_nmer(seq, pwm):
             max_strand = 0
             
         # Also test the reverse complement
-        if score_kmer(seq[i:pwm_len+i], pwm) > max_score:
+        if score_kmer(reverse_complement(seq[i:pwm_len+i]), pwm) > max_score:
             max_score = score_kmer(reverse_complement(seq[i:pwm_len+i]), pwm)
             max_index = i
-            max_strand = 0
+            max_strand = 1
     
     # Return maximum score and index
     return max_score, max_index, max_strand
